@@ -1,0 +1,7 @@
+
+<div class="content">
+    <div *ngFor="let message of message" class="message" [ngClass]="message.userName=='W3Schools' ? 'mymessage':''">
+        <div class="username">{{message.userName}}</div>
+        <div class="uzi">{{message.uzi}}</div>
+    </div>
+</div>

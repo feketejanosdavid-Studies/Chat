@@ -1,0 +1,13 @@
+app-messages {
+    background:#FFFDF7; 
+    display: block;
+    overflow:  scroll;
+    height: 80%;
+    padding: 50px;
+}
+app-send {
+    background:#0A2342;
+    display: block;
+    height: 25%;
+}
+

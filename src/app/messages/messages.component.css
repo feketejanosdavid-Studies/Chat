@@ -1,0 +1,23 @@
+.message {
+    float: left;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom:20px;
+}
+
+.content::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.mymessage {
+    float: right;
+    background-color: #69995D;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 20px;
+    color: #6C5A49;
+}
