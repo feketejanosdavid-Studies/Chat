@@ -1,4 +1,14 @@
+app-navbar {
+    position: sticky;
+    top: 0;
+    height: 100px;
+    background-color: #223843;
+    color: white !important;
+    padding: 10px;
+    display: block;
+}
+
 app-content {
     display: block;
-    height: 100vh;
+    height: 500px !important;
 }

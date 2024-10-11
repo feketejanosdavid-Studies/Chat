@@ -9,14 +9,21 @@ import { BaseService } from '../base.service';
 export class SendComponent {
 
   message=""
+  userName=""
+  constructor(private base:BaseService){
 
-  constructor(private base:BaseService){}
+    ath.getUsername().subscribe((res)=>this.userName=res)
+  }
 
 
   sendMessage(){
-    this.base.addMessage(this.message)
+    if (!this.userName=="") {
+      this.base.addMessage(this.message)
 
     this.message=""
+    }
+
+    
   }
 
 }

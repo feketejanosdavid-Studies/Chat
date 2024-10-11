@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { afterRender, Component, OnDestroy, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
 import { Subscription } from 'rxjs';
 
@@ -12,10 +12,23 @@ export class MessagesComponent implements OnInit, OnDestroy {
     message:any=[]
     feliratkozas!:Subscription
 
-    constructor(private base:BaseService){}
+    constructor(private base:BaseService){
+    ath.getUsername().subscribe((res)=>this.userName=res)
+
+      afterRender(()=>document.getElementById("pageEnd")?.scrollIntoView({behavior:"smooth"}))
+    }
+
+
     ngOnInit():void{
       this.feliratkozas = this.base.getAllMessage().subscribe(
-        (res)=>this.message=res
+        (res:any)=>{
+          this.message=[]
+        for (const key in res) {
+          console.log(res[key].uzi)
+          this.message.push(res[key])
+        }
+      
+      }
     )}
 
     ngOnDestroy(): void {
@@ -23,7 +36,8 @@ export class MessagesComponent implements OnInit, OnDestroy {
     }
 
     pageDown(){
-      document.getElementById("pageEnd")
+      document.getElementById("pageEnd")?.scrollIntoView({behavior:"smooth"})
+      
     }
 }
 
