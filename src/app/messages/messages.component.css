@@ -1,9 +1,16 @@
 .message {
     float: left;
-    width: 80%;
+    width: 60%;
+    background-color: #EBEBEB;
+    padding: 20px;
+    border-radius: 20px;
     margin-top: 10px;
     margin-bottom:20px;
+    margin-left: 200px;
+    border: 1px solid #4062BB;
 }
+
+
 
 .content::after {
     content: "";
@@ -13,11 +20,16 @@
 
 .mymessage {
     float: right;
-    background-color: #69995D;
+    padding: 20px;
+    background-color: #4062BB;
+    color: white;
+    border-radius: 20px;
+    margin-right: 200px;
+    margin-left: 0px !important;
+    width: 60%;
 }
 
 .username {
     font-weight: bold;
-    font-size: 20px;
-    color: #6C5A49;
+    font-size: 1.1em;
 }

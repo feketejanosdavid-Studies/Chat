@@ -1,2 +1,4 @@
-<textarea [(ngModel)]="message" class="form-control" placeholder="Leave a message here..."></textarea>
-<button (click)="sendMessage()" type="button" class="btn btn-outline-light">Küldés</button>
+<div class="form">
+    <textarea [(ngModel)]="message" class="form-control sender" placeholder="Írj ide egy üzenetet..."></textarea>
+    <button (click)="sendMessage()" type="button" class="btn btn-outline-primary m-2">Küldés</button>
+</div>

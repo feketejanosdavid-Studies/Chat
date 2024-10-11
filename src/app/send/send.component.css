@@ -1,0 +1,12 @@
+.form {
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.sender {
+    background-color: #DEE2FF;
+    color: black;
+}
+.sender::placeholder {
+    color: black;
+}

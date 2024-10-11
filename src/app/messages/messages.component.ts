@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-messages',
@@ -7,19 +8,23 @@ import { BaseService } from '../base.service';
   styleUrl: './messages.component.css'
 })
 
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements OnInit, OnDestroy {
     message:any=[]
-    vmi: string;
+    feliratkozas!:Subscription
 
-
-    constructor(private base:BaseService){
-      this.vmi="alma"
-    }
+    constructor(private base:BaseService){}
     ngOnInit():void{
-      this.vmi="alma"
-      this.base.getAllMessage().subscribe(
+      this.feliratkozas = this.base.getAllMessage().subscribe(
         (res)=>this.message=res
     )}
+
+    ngOnDestroy(): void {
+        if (this.feliratkozas) this.feliratkozas.unsubscribe()
+    }
+
+    pageDown(){
+      document.getElementById("pageEnd")
+    }
 }
 
 

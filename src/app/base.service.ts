@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,18 @@ export class BaseService {
 
   url= "http://172.16.16.148:7178/api/Messages/";
 
-  constructor(private http:HttpClient) { }
+  private messageSubject= new Subject()
+
+  constructor(private http:HttpClient) {
+    this.downloadAllMessages()
+
+    setInterval(
+    ()=>
+    this.http.get(this.url).forEach(
+      (res)=>this.messageSubject.next(res)), 5000
+    )
+
+   }
 
   addMessage(message:string) {
     let body:any= {}
@@ -23,6 +35,12 @@ export class BaseService {
   }
 
   getAllMessage() {
-    return this.http.get(this.url)
+    return this.messageSubject
+  }
+
+  private downloadAllMessages() {
+    this.http.get(this.url).subscribe(
+      (res)=>this.messageSubject.next(res)
+    )
   }
 }

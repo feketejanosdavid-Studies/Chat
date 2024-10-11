@@ -1,3 +1,4 @@
+<button (click)="pageDown()" type="button" class="btn btn-outline-dark">Új üzenetek</button>
 
 <div class="content">
     <div *ngFor="let message of message" class="message" [ngClass]="message.userName=='W3Schools' ? 'mymessage':''">
@@ -5,3 +6,4 @@
         <div class="uzi">{{message.uzi}}</div>
     </div>
 </div>
+<div id="pageEnd"></div>
